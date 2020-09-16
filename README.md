@@ -1,7 +1,7 @@
 # star-wars-browse
 Browse Star Wars characters and the films they've been in.
 
-This app was set up using Expo. I recommend reading through the commit messages, although they're not my finest work!
+This app was set up using Expo.
 
 ##### Quickstart:
 
@@ -41,3 +41,5 @@ This app was set up using Expo. I recommend reading through the commit messages,
 This is my first greenfield React Native project, and the first where I've really gotten to grips with some of the most basic aspects of React Native. My previous React Native experience has mostly been stylistic changes to pre-existing projects - several years ago!
 
 However, I have ~5 years of React + TS experience and I love a challenge. Over the past 2 hours I've effectively built my first Native React App, hooray!
+
+I recommend reading through the commit messages for a bit more info on how I approached this.
