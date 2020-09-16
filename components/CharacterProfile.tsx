@@ -16,20 +16,21 @@ interface Props {
 }
 
 export const CharacterProfile: React.FunctionComponent<Props> = ({ navigation, route }) => {
+  const [ filmRequests, setFilmRequestStatus ] = useState<{ [ url: string ]: PersonRequest }>({})
   const [ request, setRequestStatus ] = useState<PersonRequest>({
     loading: true,
     error: false
   })
 
   useEffect(() => {
-    if (route.params.currentCharacter) {
-      fetch(`https://swapi.dev/api/people/${route.params.currentCharacter}`)
+    if (route.params.characterUrl) {
+      fetch(route.params.characterUrl)
         .then(res => res.json())
         .then(data => {
           setRequestStatus({
             loading: false,
             error: false,
-            data: data.results.map((result: any, index: number) => ({ id: index, ...result }))
+            data: data
           })
         })
         .catch(e => {
@@ -40,7 +41,7 @@ export const CharacterProfile: React.FunctionComponent<Props> = ({ navigation, r
           })
         })
     }
-  }, [ request, setRequestStatus, route.params.currentCharacter ])
+  }, [ request, setRequestStatus, route.params.characterUrl ])
 
 
   return (
@@ -59,8 +60,10 @@ export const CharacterProfile: React.FunctionComponent<Props> = ({ navigation, r
           </Text>
           {request.data.films.map((film: string) => <Text>{film} - Film details coming soon!</Text>)}
         </View>
-        : (route.params.currentCharacter
-          ? <Text> Loading... </Text>
+        : (route.params.characterUrl
+          ? request.error
+            ? <Text> Something went wrong! </Text>
+            : <Text> Loading... </Text>
           : <Text> How did you get here? You haven't picked a character! </Text>)}
 
       <View>

@@ -27,7 +27,7 @@ export const CharacterListScreen: React.FunctionComponent<Props> = ({ navigation
         setRequestStatus({
           loading: false,
           error: false,
-          data: data.results.map((result: any, index: number) => ({ id: index, ...result }))
+          data: data.results
         })
       })
       .catch(e => {
@@ -45,7 +45,7 @@ export const CharacterListScreen: React.FunctionComponent<Props> = ({ navigation
         ? request.data.map((person: any) =>
           <View style={styles.helpContainer} key={person.name}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Character', { currentCharacter: person.id })}
+              onPress={() => navigation.navigate('Character', { characterUrl: person.url })}
               style={styles.helpLink}>
               <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
                 {person.name}
