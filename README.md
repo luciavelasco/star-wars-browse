@@ -3,6 +3,12 @@ Browse Star Wars characters and the films they've been in.
 
 This app was set up using Expo. I recommend reading through the commit messages, although they're not my finest work!
 
+##### Quickstart:
+
+1. download Expo to your phone
+2. on your laptop, open the console, cd into the directory and run "yarn; yarn start;" 
+3. scan the QR code in the console using Expo on your phone
+
 ### Changes I would like to add had I had more time
 
 **Tidy the code** - Expo has made a lot of decisions about when things should live together versus apart. I would want to:
